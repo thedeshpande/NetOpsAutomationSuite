@@ -1,0 +1,13 @@
+terminal length 0
+
+show version
+
+show inventory
+
+show ip interface brief
+
+show interfaces
+
+show logging
+
+show ip route

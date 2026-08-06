@@ -1,0 +1,11 @@
+device_type: cisco_ios
+
+enable: true
+
+paging_disable: terminal length 0
+
+timeout: 120
+
+fast_cli: false
+
+global_delay_factor: 1
