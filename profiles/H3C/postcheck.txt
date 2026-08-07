@@ -1,0 +1,6 @@
+display version
+display current-configuration
+display interface brief
+display ip routing-table
+display device
+display logbuffer

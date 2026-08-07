@@ -1,0 +1,11 @@
+device_type: cisco_wlc
+
+enable: false
+
+paging_disable: config paging disable
+
+timeout: 180
+
+fast_cli: false
+
+global_delay_factor: 3

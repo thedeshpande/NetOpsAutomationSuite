@@ -1,8 +1,8 @@
 device_type: cisco_ios
 
-enable: true
+enable: false
 
-paging_disable: terminal length 0
+paging_disable: screen-length 0
 
 timeout: 120
 
