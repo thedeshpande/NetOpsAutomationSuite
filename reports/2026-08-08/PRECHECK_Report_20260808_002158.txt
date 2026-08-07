@@ -1,0 +1,27 @@
+====================================================================================================
+NetOps Automation Suite
+====================================================================================================
+
+Operation : PRECHECK
+Site      : All
+Category  : All
+Generated : 2026-08-08 00:21:58
+
+----------------------------------------------------------------------------------------------------
+Hostname            Status      IP Address        Output File
+----------------------------------------------------------------------------------------------------
+LAB-L3SW01          SUCCESS     10.234.29.151     C:\Users\Prajwal\Documents\NetOpsAutomationSuite\output\LAB\2026-08-08\LAB-L3SW01\Precheck\precheck_20260808_002158.txt
+LAB-L2SW01          SUCCESS     10.234.29.152     C:\Users\Prajwal\Documents\NetOpsAutomationSuite\output\LAB\2026-08-08\LAB-L2SW01\Precheck\precheck_20260808_002158.txt
+LAB-RTR01           SUCCESS     10.234.29.150     C:\Users\Prajwal\Documents\NetOpsAutomationSuite\output\LAB\2026-08-08\LAB-RTR01\Precheck\precheck_20260808_002158.txt
+
+====================================================================================================
+
+SUMMARY
+----------------------------------------------------------------------------------------------------
+Total Devices      : 3
+Executed Devices   : 3
+Successful         : 3
+Failed             : 0
+Skipped            : 0
+Total Commands     : 37
+====================================================================================================
