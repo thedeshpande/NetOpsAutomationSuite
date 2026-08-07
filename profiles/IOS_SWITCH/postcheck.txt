@@ -1,0 +1,7 @@
+terminal length 0
+show vlan brief
+show interfaces status
+show spanning-tree summary
+show mac address-table
+show logging
+show clock

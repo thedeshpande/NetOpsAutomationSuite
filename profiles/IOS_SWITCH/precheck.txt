@@ -1,0 +1,12 @@
+terminal length 0
+show version
+show inventory
+show vlan brief
+show interfaces status
+show spanning-tree summary
+show mac address-table
+show ip interface brief
+show running-config | include hostname
+show logging
+show clock
+show environment

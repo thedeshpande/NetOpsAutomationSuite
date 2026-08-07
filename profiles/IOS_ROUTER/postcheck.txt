@@ -1,0 +1,8 @@
+terminal length 0
+show ip interface brief
+show ip route
+show arp
+show clock
+show logging
+show processes cpu sorted
+show memory statistics

@@ -1,13 +1,13 @@
 terminal length 0
-
 show version
-
 show inventory
-
 show ip interface brief
-
-show interfaces
-
-show logging
-
 show ip route
+show arp
+show clock
+show running-config | include hostname
+show users
+show processes cpu sorted
+show memory statistics
+show logging
+show environment
