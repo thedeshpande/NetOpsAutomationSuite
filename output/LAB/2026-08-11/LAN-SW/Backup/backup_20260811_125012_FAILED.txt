@@ -1,0 +1,30 @@
+====================================================================================================
+NetOps Automation Suite
+DEVICE EXECUTION FAILED
+====================================================================================================
+
+Hostname   : LAN-SW
+IP Address : 192.168.123.2
+Site       : LAB
+Operation  : Backup
+Generated  : 2026-08-11 12:50:12
+
+----------------------------------------------------------------------------------------------------
+
+ERROR
+-----
+
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 192.168.123.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.123.2:22
+

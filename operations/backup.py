@@ -6,6 +6,7 @@ Runs the Backup operation.
 
 from core.executor import Executor
 from core.reports import ReportManager
+from core.retry_manager import RetryManager
 
 
 class BackupOperation:
@@ -16,45 +17,84 @@ class BackupOperation:
         devices,
         site: str,
         category: str,
-    ) -> list[dict]:
+    ) -> list[dict] | None:
         """
-        Execute Backup on the selected devices.
+        Execute Backup on all selected devices.
 
-        Parameters
-        ----------
-        devices : list[Device]
-            Filtered devices.
-
-        site : str
-            Selected site.
-
-        category : str
-            Selected device category.
+        Failed devices can be retried using the common
+        RetryManager.
 
         Returns
         -------
-        list[dict]
-            Execution results.
+        list[dict] | None
+            Final execution results.
+            None if the operation is aborted.
         """
+
+        # ============================================================
+        # START BACKUP
+        # ============================================================
 
         print("\n")
         print("=" * 80)
         print("STARTING BACKUP")
         print("=" * 80)
 
-        # Execute commands on all devices
+        # ============================================================
+        # INITIAL EXECUTION
+        # ============================================================
+
+        print("\nExecuting Backup on selected devices...\n")
+
         results = Executor.execute_devices(
             devices=devices,
             operation="backup",
         )
 
-        # Build execution summary
-        summary = Executor.get_summary(results)
+        # ============================================================
+        # RETRY FAILED DEVICES
+        # ============================================================
 
-        # Print summary to console
-        Executor.print_summary(summary)
+        results, aborted = RetryManager.run(
+            devices=devices,
+            results=results,
+            operation="backup",
+        )
 
-        # Generate report
+        # ============================================================
+        # ABORT CHECK
+        # ============================================================
+
+        if aborted:
+
+            print("\n")
+            print("=" * 80)
+            print("BACKUP ABORTED")
+            print("=" * 80)
+
+            return None
+
+        # ============================================================
+        # FINAL SUMMARY
+        # ============================================================
+
+        print("\n")
+        print("=" * 80)
+        print("FINAL BACKUP SUMMARY")
+        print("=" * 80)
+
+        summary = Executor.get_summary(
+            results
+        )
+
+        Executor.print_summary(
+            summary
+        )
+
+        # ============================================================
+        # GENERATE FINAL REPORT
+        # ============================================================
+
         report_file = ReportManager.generate(
             operation="backup",
             site=site,
@@ -62,11 +102,19 @@ class BackupOperation:
             results=results,
         )
 
+        # ============================================================
+        # COMPLETED
+        # ============================================================
+
         print("\n")
         print("=" * 80)
         print("BACKUP COMPLETED")
         print("=" * 80)
-        print(f"Report : {report_file}")
+
+        print(
+            f"Report : {report_file}"
+        )
+
         print("=" * 80)
 
         return results

@@ -6,6 +6,7 @@ Runs the Postcheck operation.
 
 from core.executor import Executor
 from core.reports import ReportManager
+from core.retry_manager import RetryManager
 
 
 class PostcheckOperation:
@@ -16,45 +17,84 @@ class PostcheckOperation:
         devices,
         site: str,
         category: str,
-    ) -> list[dict]:
+    ) -> list[dict] | None:
         """
-        Execute Postcheck on the selected devices.
+        Execute Postcheck on all selected devices.
 
-        Parameters
-        ----------
-        devices : list[Device]
-            Filtered devices.
-
-        site : str
-            Selected site.
-
-        category : str
-            Selected device category.
+        Failed devices can be retried using the common
+        RetryManager.
 
         Returns
         -------
-        list[dict]
-            Execution results.
+        list[dict] | None
+            Final execution results.
+            None if the operation is aborted.
         """
+
+        # ============================================================
+        # START POSTCHECK
+        # ============================================================
 
         print("\n")
         print("=" * 80)
         print("STARTING POSTCHECK")
         print("=" * 80)
 
-        # Execute commands on all devices
+        # ============================================================
+        # INITIAL EXECUTION
+        # ============================================================
+
+        print("\nExecuting Postcheck on selected devices...\n")
+
         results = Executor.execute_devices(
             devices=devices,
             operation="postcheck",
         )
 
-        # Build execution summary
-        summary = Executor.get_summary(results)
+        # ============================================================
+        # RETRY FAILED DEVICES
+        # ============================================================
 
-        # Print summary to console
-        Executor.print_summary(summary)
+        results, aborted = RetryManager.run(
+            devices=devices,
+            results=results,
+            operation="postcheck",
+        )
 
-        # Generate report
+        # ============================================================
+        # ABORT CHECK
+        # ============================================================
+
+        if aborted:
+
+            print("\n")
+            print("=" * 80)
+            print("POSTCHECK ABORTED")
+            print("=" * 80)
+
+            return None
+
+        # ============================================================
+        # FINAL SUMMARY
+        # ============================================================
+
+        print("\n")
+        print("=" * 80)
+        print("FINAL POSTCHECK SUMMARY")
+        print("=" * 80)
+
+        summary = Executor.get_summary(
+            results
+        )
+
+        Executor.print_summary(
+            summary
+        )
+
+        # ============================================================
+        # GENERATE FINAL REPORT
+        # ============================================================
+
         report_file = ReportManager.generate(
             operation="postcheck",
             site=site,
@@ -62,11 +102,19 @@ class PostcheckOperation:
             results=results,
         )
 
+        # ============================================================
+        # COMPLETED
+        # ============================================================
+
         print("\n")
         print("=" * 80)
         print("POSTCHECK COMPLETED")
         print("=" * 80)
-        print(f"Report : {report_file}")
+
+        print(
+            f"Report : {report_file}"
+        )
+
         print("=" * 80)
 
         return results
