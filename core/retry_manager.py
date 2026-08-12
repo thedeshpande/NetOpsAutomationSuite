@@ -11,10 +11,12 @@ Supported operations:
 Workflow:
     1. Run the operation on all selected devices.
     2. Identify failed devices.
-    3. Ask the user what to do.
-    4. Retry ONLY failed devices when requested.
-    5. Merge retry results with the original results.
-    6. Repeat if devices still fail.
+    3. Preserve the original Execution ID.
+    4. Ask the user what to do.
+    5. Retry ONLY failed devices when requested.
+    6. Reuse the same Execution ID for retries.
+    7. Merge retry results with the original results.
+    8. Repeat if devices still fail.
 """
 
 import questionary
@@ -62,6 +64,18 @@ class RetryManager:
             results
         )
 
+        # ============================================================
+        # PRESERVE ORIGINAL EXECUTION ID
+        # ============================================================
+
+        execution_id = ""
+
+        if results:
+            execution_id = results[0].get(
+                "execution_id",
+                "",
+            )
+
         # ------------------------------------------------------------
         # Nothing failed
         # ------------------------------------------------------------
@@ -80,6 +94,12 @@ class RetryManager:
             print("=" * 80)
             print(f"{operation.upper()} FAILURES DETECTED")
             print("=" * 80)
+
+            if execution_id:
+
+                print(
+                    f"Execution ID : {execution_id}"
+                )
 
             print(
                 f"\nFailed Devices : "
@@ -124,7 +144,6 @@ class RetryManager:
                     failed_results
                 )
 
-                # Return to the menu.
                 continue
 
             # ========================================================
@@ -151,6 +170,13 @@ class RetryManager:
                 print(
                     f"{operation.upper()} OPERATION ABORTED"
                 )
+
+                if execution_id:
+
+                    print(
+                        f"Execution ID : {execution_id}"
+                    )
+
                 print("=" * 80)
 
                 return results, True
@@ -202,15 +228,28 @@ class RetryManager:
                 )
                 print("=" * 80)
 
+                if execution_id:
+
+                    print(
+                        f"\nExecution ID : "
+                        f"{execution_id}"
+                    )
+
                 print(
                     f"\nRetrying "
                     f"{len(failed_devices)} "
                     f"failed device(s) only.\n"
                 )
 
+                # ----------------------------------------------------
+                # IMPORTANT:
+                # Reuse the SAME Execution ID.
+                # ----------------------------------------------------
+
                 retry_results = Executor.execute_devices(
                     devices=failed_devices,
                     operation=operation,
+                    execution_id=execution_id,
                 )
 
                 # ====================================================
@@ -233,6 +272,13 @@ class RetryManager:
                 print("=" * 80)
                 print("RETRY SUMMARY")
                 print("=" * 80)
+
+                if execution_id:
+
+                    print(
+                        f"Execution ID      : "
+                        f"{execution_id}"
+                    )
 
                 print(
                     f"Previously Failed : "
@@ -321,6 +367,14 @@ class RetryManager:
                         f"ALL {operation.upper()} "
                         "DEVICES PASSED"
                     )
+
+                    if execution_id:
+
+                        print(
+                            f"Execution ID : "
+                            f"{execution_id}"
+                        )
+
                     print("=" * 80)
 
                     return results, False
@@ -330,6 +384,7 @@ class RetryManager:
                 # ====================================================
 
                 print("\n")
+
                 print(
                     f"{len(failed_results)} device(s) "
                     "are still failing."
@@ -547,6 +602,13 @@ class RetryManager:
         for result in failed_results:
 
             print()
+
+            if result.get("execution_id"):
+
+                print(
+                    f"Execution ID : "
+                    f"{result.get('execution_id', '')}"
+                )
 
             print(
                 f"Hostname : "

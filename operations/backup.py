@@ -6,7 +6,6 @@ Runs the Backup operation.
 
 from core.executor import Executor
 from core.reports import ReportManager
-from core.retry_manager import RetryManager
 
 
 class BackupOperation:
@@ -17,84 +16,41 @@ class BackupOperation:
         devices,
         site: str,
         category: str,
-    ) -> list[dict] | None:
+        execution_id: str,
+    ) -> list[dict]:
         """
-        Execute Backup on all selected devices.
-
-        Failed devices can be retried using the common
-        RetryManager.
-
-        Returns
-        -------
-        list[dict] | None
-            Final execution results.
-            None if the operation is aborted.
+        Execute Backup on selected devices.
         """
-
-        # ============================================================
-        # START BACKUP
-        # ============================================================
 
         print("\n")
         print("=" * 80)
         print("STARTING BACKUP")
         print("=" * 80)
 
-        # ============================================================
-        # INITIAL EXECUTION
-        # ============================================================
+        print(
+            f"Execution ID : {execution_id}"
+        )
 
-        print("\nExecuting Backup on selected devices...\n")
+        print("=" * 80)
 
+        # Execute commands
         results = Executor.execute_devices(
             devices=devices,
             operation="backup",
+            execution_id=execution_id,
         )
 
-        # ============================================================
-        # RETRY FAILED DEVICES
-        # ============================================================
-
-        results, aborted = RetryManager.run(
-            devices=devices,
-            results=results,
-            operation="backup",
-        )
-
-        # ============================================================
-        # ABORT CHECK
-        # ============================================================
-
-        if aborted:
-
-            print("\n")
-            print("=" * 80)
-            print("BACKUP ABORTED")
-            print("=" * 80)
-
-            return None
-
-        # ============================================================
-        # FINAL SUMMARY
-        # ============================================================
-
-        print("\n")
-        print("=" * 80)
-        print("FINAL BACKUP SUMMARY")
-        print("=" * 80)
-
+        # Build summary
         summary = Executor.get_summary(
             results
         )
 
+        # Print summary
         Executor.print_summary(
             summary
         )
 
-        # ============================================================
-        # GENERATE FINAL REPORT
-        # ============================================================
-
+        # Generate report
         report_file = ReportManager.generate(
             operation="backup",
             site=site,
@@ -102,17 +58,17 @@ class BackupOperation:
             results=results,
         )
 
-        # ============================================================
-        # COMPLETED
-        # ============================================================
-
         print("\n")
         print("=" * 80)
         print("BACKUP COMPLETED")
         print("=" * 80)
 
         print(
-            f"Report : {report_file}"
+            f"Execution ID : {execution_id}"
+        )
+
+        print(
+            f"Report       : {report_file}"
         )
 
         print("=" * 80)
