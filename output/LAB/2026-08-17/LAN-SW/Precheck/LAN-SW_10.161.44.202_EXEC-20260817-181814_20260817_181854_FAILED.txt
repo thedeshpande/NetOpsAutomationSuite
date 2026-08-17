@@ -1,0 +1,34 @@
+====================================================================================================
+NetOps Automation Suite
+DEVICE EXECUTION FAILED
+====================================================================================================
+
+Execution ID : EXEC-20260817-181814
+Hostname     : LAN-SW
+IP Address   : 10.161.44.202
+Site         : LAB
+Category     : Switch
+Profile      : IOS_SWITCH
+Operation    : Precheck
+Generated    : 2026-08-17 18:18:54
+
+----------------------------------------------------------------------------------------------------
+
+ERROR
+-----
+
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 10.161.44.202
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.161.44.202:22
+
+

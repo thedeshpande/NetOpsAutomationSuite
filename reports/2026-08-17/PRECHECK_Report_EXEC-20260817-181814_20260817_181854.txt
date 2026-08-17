@@ -1,0 +1,95 @@
+====================================================================================================
+                         NETOPS AUTOMATION SUITE
+                         EXECUTION REPORT
+====================================================================================================
+
+Execution ID : EXEC-20260817-181814
+Operation    : PRECHECK
+Site         : LAB
+Category     : All
+Generated    : 2026-08-17 18:18:54
+
+----------------------------------------------------------------------------------------------------
+Hostname            Status      IP Address        Output File
+----------------------------------------------------------------------------------------------------
+R1                  FAILED      10.161.44.200     C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\R1\Precheck\R1_10.161.44.200_EXEC-20260817-181814_20260817_181854_FAILED.txt
+Core                FAILED      10.161.44.201     C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\Core\Precheck\Core_10.161.44.201_EXEC-20260817-181814_20260817_181854_FAILED.txt
+LAN-SW              FAILED      10.161.44.202     C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\LAN-SW\Precheck\LAN-SW_10.161.44.202_EXEC-20260817-181814_20260817_181854_FAILED.txt
+
+====================================================================================================
+
+SUMMARY
+----------------------------------------------------------------------------------------------------
+Total Devices      : 3
+Executed Devices   : 3
+Successful         : 0
+Failed             : 3
+Skipped            : 0
+Total Commands     : 0
+Success Rate       : 0.0%
+
+FAILED DEVICES
+----------------------------------------------------------------------------------------------------
+Hostname : R1
+IP       : 10.161.44.200
+Reason   : 
+Connection Timeout
+
+Hostname : R1
+IP       : 10.161.44.200
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.161.44.200:22
+
+
+Output   : C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\R1\Precheck\R1_10.161.44.200_EXEC-20260817-181814_20260817_181854_FAILED.txt
+
+Hostname : Core
+IP       : 10.161.44.201
+Reason   : 
+Connection Timeout
+
+Hostname : Core
+IP       : 10.161.44.201
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.161.44.201:22
+
+
+Output   : C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\Core\Precheck\Core_10.161.44.201_EXEC-20260817-181814_20260817_181854_FAILED.txt
+
+Hostname : LAN-SW
+IP       : 10.161.44.202
+Reason   : 
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 10.161.44.202
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.161.44.202:22
+
+
+Output   : C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite\output\LAB\2026-08-17\LAN-SW\Precheck\LAN-SW_10.161.44.202_EXEC-20260817-181814_20260817_181854_FAILED.txt
+
+====================================================================================================
+                         END OF REPORT
+====================================================================================================
