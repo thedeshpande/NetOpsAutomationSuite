@@ -1,8 +1,9 @@
 @echo off
-
+setlocal EnableExtensions
 title NetOps Automation Suite
 
-set "PROJECT_DIR=C:\Users\Prajwal\Documents\Projects\NetOpsAutomationSuite"
+set "PROJECT_DIR=%~dp0"
+set "VENV_PYTHON=%PROJECT_DIR%.venv\Scripts\python.exe"
 
 echo.
 echo ============================================================
@@ -10,40 +11,34 @@ echo              NETOPS AUTOMATION SUITE
 echo ============================================================
 echo.
 
-echo Project:
-echo %PROJECT_DIR%
-echo.
-
-if not exist "%PROJECT_DIR%\.venv\Scripts\python.exe" (
-
+if not exist "%VENV_PYTHON%" (
     echo ERROR: Virtual environment not found.
     echo.
-    echo Expected:
-    echo %PROJECT_DIR%\.venv\Scripts\python.exe
+    echo This appears to be the first run on this laptop.
     echo.
-
+    echo Please run:
+    echo     SETUP_NETOPS.bat
+    echo.
+    echo After setup is completed, use START_NETOPS.bat normally.
+    echo.
     pause
     exit /b 1
 )
 
 echo Virtual environment found.
 echo.
-
 echo Starting Flask server...
 echo.
 
-start "NetOps Flask Server" cmd /k ""%PROJECT_DIR%\.venv\Scripts\python.exe" "%PROJECT_DIR%\web\app.py""
+start "NetOps Flask Server" cmd /k ""%VENV_PYTHON%" "%PROJECT_DIR%web\app.py""
 
 echo Waiting for Flask server...
 
 :WAIT_FOR_SERVER
-
 powershell -NoProfile -Command "try { Invoke-WebRequest -Uri 'http://127.0.0.1:5000' -UseBasicParsing -TimeoutSec 1 | Out-Null; exit 0 } catch { exit 1 }" >nul 2>&1
 
 if errorlevel 1 (
-
     timeout /t 1 /nobreak >nul
-
     goto WAIT_FOR_SERVER
 )
 
@@ -62,8 +57,7 @@ echo.
 echo Browser:
 echo http://127.0.0.1:5000
 echo.
-echo You can close this window.
-echo Keep the Flask server window running.
+echo Keep the Flask server window running while using the suite.
 echo ============================================================
 echo.
 
