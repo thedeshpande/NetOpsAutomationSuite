@@ -1,0 +1,217 @@
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Starting PRECHECK execution for 3 devices
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connecting to Core (192.168.122.2)
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connecting to LAN-SW (192.168.123.2)
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connecting to R1 (172.28.139.200)
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connection attempt 1/3 for LAN-SW (192.168.123.2)
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connection attempt 1/3 for Core (192.168.122.2)
+2026-08-15 00:41:59 | INFO     | [EXEC-20260815-004026] Connection attempt 1/3 for R1 (172.28.139.200)
+2026-08-15 00:42:09 | ERROR    | [EXEC-20260815-004026] Connection attempt 1/3 failed for Core (192.168.122.2): 
+Connection Timeout
+
+Hostname : Core
+IP       : 192.168.122.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.122.2:22
+
+
+2026-08-15 00:42:09 | INFO     | [EXEC-20260815-004026] Retrying connection to Core (192.168.122.2) in 5 seconds
+2026-08-15 00:42:09 | ERROR    | [EXEC-20260815-004026] Connection attempt 1/3 failed for LAN-SW (192.168.123.2): 
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 192.168.123.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.123.2:22
+
+
+2026-08-15 00:42:09 | INFO     | [EXEC-20260815-004026] Retrying connection to LAN-SW (192.168.123.2) in 5 seconds
+2026-08-15 00:42:09 | ERROR    | [EXEC-20260815-004026] Connection attempt 1/3 failed for R1 (172.28.139.200): 
+Connection Timeout
+
+Hostname : R1
+IP       : 172.28.139.200
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 172.28.139.200:22
+
+
+2026-08-15 00:42:09 | INFO     | [EXEC-20260815-004026] Retrying connection to R1 (172.28.139.200) in 5 seconds
+2026-08-15 00:42:14 | INFO     | [EXEC-20260815-004026] Connection attempt 2/3 for Core (192.168.122.2)
+2026-08-15 00:42:14 | INFO     | [EXEC-20260815-004026] Connection attempt 2/3 for LAN-SW (192.168.123.2)
+2026-08-15 00:42:14 | INFO     | [EXEC-20260815-004026] Connection attempt 2/3 for R1 (172.28.139.200)
+2026-08-15 00:42:24 | ERROR    | [EXEC-20260815-004026] Connection attempt 2/3 failed for Core (192.168.122.2): 
+Connection Timeout
+
+Hostname : Core
+IP       : 192.168.122.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.122.2:22
+
+
+2026-08-15 00:42:24 | INFO     | [EXEC-20260815-004026] Retrying connection to Core (192.168.122.2) in 5 seconds
+2026-08-15 00:42:24 | ERROR    | [EXEC-20260815-004026] Connection attempt 2/3 failed for LAN-SW (192.168.123.2): 
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 192.168.123.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.123.2:22
+
+
+2026-08-15 00:42:24 | INFO     | [EXEC-20260815-004026] Retrying connection to LAN-SW (192.168.123.2) in 5 seconds
+2026-08-15 00:42:24 | ERROR    | [EXEC-20260815-004026] Connection attempt 2/3 failed for R1 (172.28.139.200): 
+Connection Timeout
+
+Hostname : R1
+IP       : 172.28.139.200
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 172.28.139.200:22
+
+
+2026-08-15 00:42:24 | INFO     | [EXEC-20260815-004026] Retrying connection to R1 (172.28.139.200) in 5 seconds
+2026-08-15 00:42:29 | INFO     | [EXEC-20260815-004026] Connection attempt 3/3 for LAN-SW (192.168.123.2)
+2026-08-15 00:42:29 | INFO     | [EXEC-20260815-004026] Connection attempt 3/3 for Core (192.168.122.2)
+2026-08-15 00:42:29 | INFO     | [EXEC-20260815-004026] Connection attempt 3/3 for R1 (172.28.139.200)
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Connection attempt 3/3 failed for Core (192.168.122.2): 
+Connection Timeout
+
+Hostname : Core
+IP       : 192.168.122.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.122.2:22
+
+
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Failed for Core (192.168.122.2) with exception: 
+Connection Timeout
+
+Hostname : Core
+IP       : 192.168.122.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.122.2:22
+
+
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Connection attempt 3/3 failed for LAN-SW (192.168.123.2): 
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 192.168.123.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.123.2:22
+
+
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Connection attempt 3/3 failed for R1 (172.28.139.200): 
+Connection Timeout
+
+Hostname : R1
+IP       : 172.28.139.200
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 172.28.139.200:22
+
+
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Failed for R1 (172.28.139.200) with exception: 
+Connection Timeout
+
+Hostname : R1
+IP       : 172.28.139.200
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 172.28.139.200:22
+
+
+2026-08-15 00:42:39 | ERROR    | [EXEC-20260815-004026] Failed for LAN-SW (192.168.123.2) with exception: 
+Connection Timeout
+
+Hostname : LAN-SW
+IP       : 192.168.123.2
+
+TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.123.2:22
+
+
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Disconnecting from Core (192.168.122.2)
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Completed [1/3] for Core (192.168.122.2)
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Disconnecting from R1 (172.28.139.200)
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Completed [2/3] for R1 (172.28.139.200)
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Disconnecting from LAN-SW (192.168.123.2)
+2026-08-15 00:42:39 | INFO     | [EXEC-20260815-004026] Completed [3/3] for LAN-SW (192.168.123.2)

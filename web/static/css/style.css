@@ -1,0 +1,675 @@
+/* ================================================================
+   GLOBAL
+================================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f4f6f8;
+    color: #1f2933;
+}
+
+
+/* ================================================================
+   HEADER
+================================================================ */
+
+.header {
+    text-align: center;
+    padding: 42px 20px 30px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    color: #17212b;
+}
+
+.header p {
+    margin: 10px 0 0;
+
+    font-size: 15px;
+    color: #697586;
+}
+
+
+/* ================================================================
+   MAIN CONTAINER
+================================================================ */
+
+.container {
+    width: min(1200px, 94%);
+    margin: 30px auto 50px;
+}
+
+
+/* ================================================================
+   CARD
+================================================================ */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 10px;
+
+    padding: 24px;
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ================================================================
+   SECTION TITLE
+================================================================ */
+
+.section-title {
+    font-size: 17px;
+    font-weight: 650;
+
+    color: #17212b;
+
+    margin-bottom: 18px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+
+/* ================================================================
+   OPERATION BUTTONS
+================================================================ */
+
+.operation-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.operation-btn {
+    padding: 11px 24px;
+
+    border: 1px solid #cbd2d9;
+    border-radius: 7px;
+
+    background: #ffffff;
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.operation-btn:hover {
+    border-color: #2563eb;
+}
+
+.operation-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+
+/* ================================================================
+   FORM
+================================================================ */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #52606d;
+}
+
+.form-group select {
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd2d9;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.form-group select:focus {
+    border-color: #2563eb;
+}
+
+
+/* ================================================================
+   DEVICE COUNT
+================================================================ */
+
+.device-count {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ================================================================
+   TABLE
+================================================================ */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    padding: 12px;
+
+    text-align: left;
+
+    font-weight: 650;
+
+    color: #52606d;
+
+    border-bottom: 1px solid #e1e5e9;
+}
+
+td {
+    padding: 12px;
+
+    border-bottom: 1px solid #edf0f2;
+
+    color: #374151;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+.empty-state {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #8a96a3;
+}
+
+
+/* ================================================================
+   RUN BUTTON
+================================================================ */
+
+.action-section {
+    display: flex;
+
+    justify-content: center;
+
+    margin: 28px 0;
+}
+
+.run-btn {
+    min-width: 220px;
+
+    padding: 13px 28px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.run-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+.run-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ================================================================
+   STATUS BADGE
+================================================================ */
+
+.status-badge {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-badge.neutral {
+    background: #eef1f4;
+    color: #59636e;
+}
+
+
+/* ================================================================
+   EXECUTION INFORMATION
+================================================================ */
+
+.execution-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.execution-info div {
+    padding: 14px;
+
+    background: #f8fafc;
+
+    border-radius: 8px;
+
+    border: 1px solid #edf0f2;
+}
+
+.execution-info span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 11px;
+
+    color: #7b8794;
+
+    text-transform: uppercase;
+}
+
+.execution-info strong {
+    font-size: 14px;
+
+    color: #17212b;
+}
+
+
+/* ================================================================
+   SUMMARY
+================================================================ */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.summary-box {
+    padding: 18px;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e1e5e9;
+
+    text-align: center;
+}
+
+.summary-box span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #697586;
+
+    margin-bottom: 6px;
+}
+
+.summary-box strong {
+    font-size: 27px;
+
+    color: #17212b;
+}
+
+.summary-box.success {
+    border-left: 4px solid #16a34a;
+}
+
+.summary-box.failed {
+    border-left: 4px solid #dc2626;
+}
+
+
+/* ================================================================
+   RESULT TOOLBAR
+================================================================ */
+
+.result-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.result-filters {
+    display: flex;
+
+    gap: 7px;
+}
+
+.filter-btn {
+    padding: 7px 13px;
+
+    border: 1px solid #d5dbe1;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #17212b;
+    color: #ffffff;
+
+    border-color: #17212b;
+}
+
+#result-search {
+    width: 230px;
+
+    padding: 9px 11px;
+
+    border: 1px solid #cbd2d9;
+
+    border-radius: 6px;
+
+    outline: none;
+}
+
+
+/* ================================================================
+   RESULT ACTIONS
+================================================================ */
+
+.result-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.secondary-btn {
+    padding: 10px 17px;
+
+    border: 1px solid #cbd2d9;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    border-color: #2563eb;
+
+    color: #2563eb;
+}
+
+
+/* ================================================================
+   RETRY
+================================================================ */
+
+.retry-card {
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    background: #fffaf0;
+
+    border: 1px solid #f1d39b;
+
+    border-radius: 10px;
+}
+
+.retry-title {
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #92400e;
+}
+
+.retry-card p {
+    margin: 8px 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.retry-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.retry-btn {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #d97706;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.cancel-btn {
+    padding: 10px 18px;
+
+    border: 1px solid #cbd2d9;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+}
+
+
+/* ================================================================
+   NEW OPERATION
+================================================================ */
+
+.new-operation-section {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 25px;
+}
+
+.new-operation-btn {
+    padding: 11px 22px;
+
+    border: 1px solid #cbd2d9;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* ================================================================
+   HIDDEN
+================================================================ */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================================================================
+   FOOTER
+================================================================ */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #8a96a3;
+
+    font-size: 12px;
+
+    border-top: 1px solid #e1e5e9;
+
+    background: #ffffff;
+}
+
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 800px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .execution-info {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #result-search {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .execution-info {
+        grid-template-columns: 1fr;
+    }
+
+}
